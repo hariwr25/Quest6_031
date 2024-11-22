@@ -96,6 +96,8 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
         ) {
             Text(
                 text = "Masukkan Data Kamu",
+                fontWeight = FontWeight.Bold,
+                fontSize = 19.sp
 
             )
         }
