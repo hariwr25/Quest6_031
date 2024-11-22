@@ -101,6 +101,7 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
             )
             Text(
                 text = "Isi sesuai data yang kamu daftarkan",
+                fontWeight = FontWeight.Light
             )
         }
     }
