@@ -15,6 +15,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material3.Button
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.RadioButton
@@ -148,7 +150,38 @@ fun RencanaStudyView(
                                 Text(listData)
                             }
                         }
-
+                    }
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    HorizontalDivider()
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    Text(text = "Klausul Persetujuan Mahasiswa", fontWeight = FontWeight.Bold)
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(8.dp)
+                    ) {
+                        Checkbox(
+                            checked = checked,
+                            onCheckedChange = { checked = it },
+                            enabled = chosenDropDown.isNotBlank() && pilihanKelas.isNotBlank()
+                        )
+                        Text(
+                            text = "Saya menyetujui setiap pernyataan yang ada tanpa paksaan dari pihak manapun",
+                            fontSize = 10.sp,
+                            fontWeight = FontWeight.Light,
+                            modifier = Modifier.padding(start = 8.dp)
+                        )
+                    }
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        Button(onClick = { onBackButtonClicked() }) {
+                            Text(text = "Kembali")
+                        }
+                        Button(onClick = { onSubmitButtonClicked(listData) }, enabled = checked) {
+                            Text(text = "Lanjut")
+                        }
                     }
                 }
             }
