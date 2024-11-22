@@ -94,7 +94,10 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
                 .padding(16.dp),
             horizontalAlignment =  Alignment.CenterHorizontally
         ) {
+            Text(
+                text = "Masukkan Data Kamu",
 
+            )
         }
     }
 }
