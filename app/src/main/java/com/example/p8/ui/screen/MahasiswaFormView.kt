@@ -117,19 +117,19 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
                 fontWeight = FontWeight.Light
             )
             Spacer(modifier = Modifier.padding(8.dp))
-            OutlinedTextField(
-                modifier = Modifier.fillMaxWidth(),
-                value = nim,
-                onValueChange = {nim = it},
-                label = { Text(text = "Nomor Induk  Mahasiswa") },
-                leadingIcon = {
-                    Icon(
+           OutlinedTextField(
+               modifier = Modifier.fillMaxWidth(),
+               value = nim,
+               onValueChange = {nim = it},
+               label = { Text(text = "Nomor Induk Mahasiswa") },
+               leadingIcon = {
+                   Icon(
                         ImageVector = Icons.Filled.Info,
                         contentDescription = ""
                     )
                 },
                 KeyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
+                    keyboardType = KeyboardType.Number,
                     imeAction = ImeAction.Next
                 ),
                 singleLine = true,
