@@ -7,10 +7,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -42,6 +45,7 @@ fun TampilHasilView(
         modifier = Modifier
             .fillMaxSize()
             .background(color = colorResource(id = R.color.primary))
+            .padding(WindowInsets.statusBars.asPaddingValues())
     ) {
         Row(
             modifier = Modifier
@@ -79,6 +83,7 @@ fun TampilHasilView(
                 )
             }
         }
+
         Box(
             modifier = Modifier
                 .background(
@@ -139,7 +144,6 @@ fun TemplatesHasil(judulParam: String, isiParam: String) {
                 .fillMaxWidth()
                 .padding(8.dp),
             horizontalArrangement = Arrangement.SpaceEvenly
-
         ) {
             Text(judulParam, modifier = Modifier.weight(0.8f))
             Text(":", modifier = Modifier.weight(0.2f))

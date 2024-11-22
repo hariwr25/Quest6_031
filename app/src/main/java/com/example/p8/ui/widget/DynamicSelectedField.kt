@@ -1,7 +1,6 @@
 package com.example.p8.ui.widget
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -15,15 +14,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import kotlin.math.exp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DynamicSelectedField(
-    selectedValue : String,
-    options : List<String>,
-    label : String,
-    onValueChangedEvent : (String) -> Unit,
+    selectedValue: String,
+    options: List<String>,
+    label: String,
+    onValueChangeEvent: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var expanded by remember {
@@ -33,8 +31,10 @@ fun DynamicSelectedField(
     ExposedDropdownMenuBox(
         expanded = expanded,
         onExpandedChange = { expanded = !expanded },
-        modifier = modifier
-    ) {
+        modifier = Modifier
+    )
+    {
+
         OutlinedTextField(
             readOnly = true,
             value = selectedValue,
@@ -51,17 +51,17 @@ fun DynamicSelectedField(
                 .fillMaxWidth()
         )
 
-        ExposedDropdownMenu(expanded = expanded,
-            onDismissRequest = { expanded = false })
-        {
-            options.forEach { option: String ->
-                DropdownMenuItem(
-                    text = { Text(text = option) },
-                    onClick = {
-                        expanded = false
-                        onValueChangedEvent(option)
-                    }
-                )
+        ExposedDropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+            options.forEach { options: String ->
+                DropdownMenuItem({
+                    Text(text = options)
+                }, onClick = {
+                    expanded = false
+                    onValueChangeEvent(options)
+                })
             }
         }
     }
