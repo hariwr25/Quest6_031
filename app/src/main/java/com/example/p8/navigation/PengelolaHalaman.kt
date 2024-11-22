@@ -47,9 +47,9 @@ fun MahasiswaApp(
             MahasiswaFormView(
                 onSubmitButtonClicked = {
                     mahasiswaViewModel.saveDataMahasiswa(it)
-                    navController.navigate(Halaman.MataKuliah.name)
+                    navController.navigate(Halaman.Matakuliah.name)
                 },
-                onBackButtonClicked = {
+                onBackButtonCLicked = {
                     navController.popBackStack()
                 }
             )
