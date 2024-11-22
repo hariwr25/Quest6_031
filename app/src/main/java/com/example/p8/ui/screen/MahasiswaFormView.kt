@@ -39,8 +39,9 @@ import androidx.compose.ui.unit.sp
 import com.example.p8.R
 
 @Composable
-fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
-        onBackButtonCLicked: () -> Unit
+fun MahasiswaFormView(
+    onSubmitButtonClicked: (MutableList<String>) -> Unit,
+    onBackButtonCLicked: () -> Unit
 ) {
     var nama by remember {
         mutableStateOf("")
@@ -55,14 +56,14 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
     val listData: MutableList<String> =
         mutableListOf(nim, nama, email)
 
-    Column (
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .background(
-            color = colorResource(
-                id = R.color.primary
-            )
-        ),
+                color = colorResource(
+                    id = R.color.primary
+                )
+            ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.padding(26.dp))
@@ -94,22 +95,24 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
             }
         }
     }
-    Spacer(modifier = Modifier.padding(top = 16.dp,))
+    Spacer(modifier = Modifier.padding(top = 16.dp))
 
-    Box(modifier = Modifier.background(
-        color = Color.White,
-        shape = RoundedCornerShape(
-            topEnd = 15.dp,
-            topStart = 15.dp
-        )
-    )
-        .fillMaxSize()
-    ){
-        Column (
+    Box(
+        modifier = Modifier
+            .background(
+                color = Color.White,
+                shape = RoundedCornerShape(
+                    topEnd = 15.dp,
+                    topStart = 15.dp
+                )
+            )
+            .fillMaxSize()
+    ) {
+        Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp),
-            horizontalAlignment =  Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = "Masukkan Data Kamu",
@@ -122,17 +125,17 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
             )
             Spacer(modifier = Modifier.padding(8.dp))
             OutlinedTextField(
-               modifier = Modifier.fillMaxWidth(),
-               value = nim,
-               onValueChange = {nim = it},
-               label = { Text(text = "Nomor Induk Mahasiswa") },
-               leadingIcon = {
-                   Icon(
-                        imageVector  = Icons.Filled.Info,
+                modifier = Modifier.fillMaxWidth(),
+                value = nim,
+                onValueChange = { nim = it },
+                label = { Text(text = "Nomor Induk Mahasiswa") },
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Filled.Info,
                         contentDescription = ""
                     )
                 },
-                keyboardOptions =  KeyboardOptions(
+                keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number,
                     imeAction = ImeAction.Next
                 ),
@@ -144,7 +147,7 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
                 modifier = Modifier.fillMaxWidth(),
                 value = nama,
                 onValueChange = { nama = it },
-                label = { Text(text = "Nama") },
+                label = { Text(text = "Nama Mahasiswa") },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Filled.Person,
@@ -178,7 +181,7 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
                 shape = RoundedCornerShape(50.dp)
             )
             Spacer(modifier = Modifier.padding(16.dp))
-            Row (
+            Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
