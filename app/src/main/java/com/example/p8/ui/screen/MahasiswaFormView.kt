@@ -103,6 +103,7 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
                 text = "Isi sesuai data yang kamu daftarkan",
                 fontWeight = FontWeight.Light
             )
+            Spacer(modifier = Modifier.padding(8.dp))
         }
     }
 }
