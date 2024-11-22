@@ -125,7 +125,7 @@ fun RencanaStudyView(
                     selectedValue = chosenDropdown,
                     options = MataKuliah.options,
                     label = "Mata Kuliah",
-                    onValueChangedEvent = {
+                    onValueChangeEvent = {
                         chosenDropdown = it
                     }
                 )
