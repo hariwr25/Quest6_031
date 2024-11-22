@@ -2,6 +2,7 @@ package com.example.p8.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,6 +17,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -34,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.p8.R
 import com.example.p8.data.MataKuliah
+import com.example.p8.data.RuangKelas
 import com.example.p8.model.Mahasiswa
 import com.example.p8.model.RencanaStudy
 import com.example.p8.ui.widget.DynamicSelectedField
@@ -44,13 +47,16 @@ fun RencanaStudyView(
     onSubmitButtonClicked: (MutableList<String>) -> Unit,
     onBackButtonClicked: () -> Unit
 ) {
-        var chosenDropDown by remember { mutableStateOf("") }
+    var chosenDropDown by remember { mutableStateOf("") }
     var checked by remember { mutableStateOf(false) }
-    var pilihanKelas by remember { mutableStateOf("")
+    var pilihanKelas by remember {
+        mutableStateOf("")
     }
     var listData: MutableList<String> = mutableListOf(chosenDropDown, pilihanKelas)
     Column(
-        modifier = Modifier.fillMaxSize().background(color = colorResource(id = R.color.primary))
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = colorResource(id = R.color.primary))
     ) {
         Row(
             modifier = Modifier
@@ -66,7 +72,7 @@ fun RencanaStudyView(
                     .size(100.dp)
             )
             Spacer(modifier = Modifier.padding(start = 16.dp))
-            Column (modifier = Modifier.weight(1f)){
+            Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = mahasiswa.nama,
                     fontWeight = FontWeight.Bold,
@@ -79,7 +85,7 @@ fun RencanaStudyView(
                     fontSize = 15.sp,
                     color = Color.White
                 )
-                Box{
+                Box {
                     Icon(
                         imageVector = Icons.Filled.Notifications,
                         contentDescription = "",
@@ -98,12 +104,12 @@ fun RencanaStudyView(
                     )
                     .fillMaxSize(),
 
-                ){
-                Column (
+                ) {
+                Column(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(16.dp)
-                ){
+                ) {
                     Text(text = "Pilih Mata Kuliah Peminatan", fontWeight = FontWeight.Bold)
                     Text(
                         text = "Silahkan pilih mata kuliah yang anda inginkan",
@@ -128,8 +134,24 @@ fun RencanaStudyView(
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Light
                     )
+                    Spacer(modifier = Modifier.padding(8.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        RuangKelas.listKelas.forEach { listData ->
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                RadioButton(
+                                    selected = pilihanKelas == listData,
+                                    onClick = { pilihanKelas = listData }
+                                )
+                                Text(listData)
+                            }
+                        }
+
+                    }
+                }
             }
         }
-    }
     }
 }
