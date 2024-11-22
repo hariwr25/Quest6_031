@@ -27,10 +27,8 @@ import androidx.compose.ui.unit.sp
 import com.example.p8.R
 
 @Composable
-fun MahasiswaFormView(
-    modifier: Modifier,
-    onSubmitButtonClicked: (MutableList<String> -> Unit,
-    onBackButtonClicked: () -> Unit
+fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
+        onBackButtonCLicked: () -> Unit
 ) {
     var nama by remember {
         mutableStateOf("") }
@@ -93,6 +91,10 @@ fun MahasiswaFormView(
         Column (
             modifier = Modifier
                 .fillMaxSize()
-        )
+                .padding(16.dp),
+            horizontalAlignment =  Alignment.CenterHorizontally
+        ) {
+
+        }
     }
 }
