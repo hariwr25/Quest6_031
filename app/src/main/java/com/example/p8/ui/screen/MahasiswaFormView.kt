@@ -7,9 +7,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -22,6 +28,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.p8.R
@@ -31,7 +39,8 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
         onBackButtonCLicked: () -> Unit
 ) {
     var nama by remember {
-        mutableStateOf("") }
+        mutableStateOf("")
+    }
     var nim by remember {
         mutableStateOf("")
     }
@@ -51,26 +60,30 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
             )
         ),
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
         Spacer(modifier = Modifier.padding(26.dp))
         Row(
             verticalAlignment = Alignment.CenterVertically
-        ){
+        ) {
             Image(
-                painter = painterResource(id = R.drawable.logoumy),
+                painter = painterResource(
+                    id = R.drawable.logoumy
+                ),
                 contentDescription = "",
                 modifier = Modifier.size(45.dp)
             )
             Spacer(modifier = Modifier.padding(16.dp))
 
-            Column{
-                Text(text = "Universitas Muhammadiyah Yogyakarta",
+            Column {
+                Text(
+                    text = "Universitas Muhammadiyah Yogyakarta",
                     color = Color.Red,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold
                 )
 
-                Text(text = "Unggul dan Islami",
+                Text(
+                    text = "Unggul dan Islami",
                     color = Color.Red,
                     fontWeight = FontWeight.Light
                 )
@@ -104,6 +117,24 @@ fun MahasiswaFormView(onSubmitButtonClicked: (MutableList<String>) -> Unit,
                 fontWeight = FontWeight.Light
             )
             Spacer(modifier = Modifier.padding(8.dp))
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = nim,
+                onValueChange = {nim = it},
+                label = { Text(text = "Nomor Induk  Mahasiswa") },
+                leadingIcon = {
+                    Icon(
+                        ImageVector = Icons.Filled.Info,
+                        contentDescription = ""
+                    )
+                },
+                KeyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Text,
+                    imeAction = ImeAction.Next
+                ),
+                singleLine = true,
+                shape = RoundedCornerShape(50.dp)
+            )
         }
     }
 }
