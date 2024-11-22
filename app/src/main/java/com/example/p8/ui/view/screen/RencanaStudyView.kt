@@ -1,4 +1,4 @@
-package com.example.p8.ui.screen
+package com.example.p8.ui.view.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -33,14 +33,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.p8.R
 import com.example.p8.data.MataKuliah
 import com.example.p8.data.RuangKelas
 import com.example.p8.model.Mahasiswa
-import com.example.p8.model.RencanaStudy
 import com.example.p8.ui.widget.DynamicSelectedField
 
 @Composable

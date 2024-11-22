@@ -1,4 +1,4 @@
-package com.example.p8.ui.viewmodel
+package com.example.p8.ui.view.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.example.p8.model.Mahasiswa

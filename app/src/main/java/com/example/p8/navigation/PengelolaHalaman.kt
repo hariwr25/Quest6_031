@@ -9,8 +9,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.p8.model.Mahasiswa
-import com.example.p8.ui.viewmodel.MahasiswaViewModel
-import com.example.p8.ui.viewmodel.RencanaStudyViewModel
+import com.example.p8.ui.view.viewmodel.MahasiswaViewModel
+import com.example.p8.ui.view.viewmodel.RencanaStudyViewModel
 
 enum class PengelolaHalaman {
     Splash,
@@ -31,6 +31,5 @@ fun MahasiswaApp(
         startDestination = PengelolaHalaman.Splash.name,
         modifier = Modifier.padding()
     ){
-
     }
 }
