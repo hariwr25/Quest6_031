@@ -12,9 +12,9 @@ import com.example.p8.model.Mahasiswa
 import com.example.p8.ui.view.viewmodel.MahasiswaViewModel
 import com.example.p8.ui.view.viewmodel.RencanaStudyViewModel
 
-enum class PengelolaHalaman {
+enum class Halaman {
     Splash,
-    Mahasiswa,
+    Mahasis,
     Matakuliah,
     Tampil
 }
@@ -28,7 +28,7 @@ fun MahasiswaApp(
     val mahasiswaUiState = mahasiswaViewModel.mahasiswaUiState.collectAsState().value
     NavHost(
         navController = navController,
-        startDestination = PengelolaHalaman.Splash.name,
+        startDestination = Halaman.Splash.name,
         modifier = Modifier.padding()
     ){
     }
