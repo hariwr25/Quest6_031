@@ -19,9 +19,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.p8.R
 
-@Preview(showBackground = true)
+
 @Composable
 fun SplashView(
+    onMulaiButton: () -> Unit
 ) {
     Column(
         modifier = Modifier
